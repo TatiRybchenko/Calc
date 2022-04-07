@@ -11,9 +11,9 @@ import static org.testng.Assert.assertEquals;
 
 public class OperationYaCalcTest {
 
-   private final static WebDriver driver = new ChromeDriver();
-   private final static SearchPage searchPage = new SearchPage(driver);
-   private final static CalcHomePage calcHomePage = new CalcHomePage(driver);
+   private static WebDriver driver = new ChromeDriver();
+   private static SearchPage searchPage = new SearchPage(driver);
+   private static CalcHomePage calcHomePage = new CalcHomePage(driver);
 
     @BeforeTest
     public static void beforeTest() {
