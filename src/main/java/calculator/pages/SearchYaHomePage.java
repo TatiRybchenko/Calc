@@ -1,4 +1,4 @@
-package calculator;
+package calculator.pages;
 
 import jdk.jfr.Name;
 import io.qameta.allure.Step;

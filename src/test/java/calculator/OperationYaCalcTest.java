@@ -1,19 +1,21 @@
 package calculator;
 
-import calculator.block.SearchPage;
+import calculator.block.SearchBlock;
+
+import calculator.pages.CalcHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.qameta.allure.*;
 import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
-import static calculator.SearchYaHomePage.URL;
+import static calculator.pages.SearchYaHomePage.URL;
 import static org.testng.Assert.assertEquals;
 
 public class OperationYaCalcTest {
 
-   private static WebDriver driver = new ChromeDriver();
-   private static SearchPage searchPage = new SearchPage(driver);
-   private static CalcHomePage calcHomePage = new CalcHomePage(driver);
+   private final static WebDriver driver = new ChromeDriver();
+   private final static SearchBlock searchPage = new SearchBlock(driver);
+   private final static CalcHomePage calcHomePage = new CalcHomePage(driver);
 
     @BeforeTest
     public static void beforeTest() {

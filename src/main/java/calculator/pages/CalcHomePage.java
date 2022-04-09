@@ -1,4 +1,4 @@
-package calculator;
+package calculator.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
