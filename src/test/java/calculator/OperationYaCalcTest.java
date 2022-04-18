@@ -1,7 +1,6 @@
 package calculator;
 
 import calculator.block.SearchBlock;
-
 import calculator.pages.CalcHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,13 +10,16 @@ import java.util.concurrent.TimeUnit;
 import static calculator.pages.SearchYaHomePage.URL;
 import static org.testng.Assert.assertEquals;
 
+
+
+
 public class OperationYaCalcTest {
 
    private final static WebDriver driver = new ChromeDriver();
    private final static SearchBlock searchPage = new SearchBlock(driver);
    private final static CalcHomePage calcHomePage = new CalcHomePage(driver);
 
-    @BeforeTest
+    @BeforeClass
     public static void beforeTest() {
         final String requestCalculator = "калькулятор";
 
@@ -29,9 +31,9 @@ public class OperationYaCalcTest {
 
     }
 
-
+    @Test
     @Description("Выполнение операции sqrt(144) = 12, с корректными значениями. Корректные значения для создания вводятся через клавиатуру")
-    @Test (priority = 1)
+
         public void clickElementSearchSquareRootOperation() {
         final String valueOperation = "144";
         final String expectedResult = "12";
@@ -45,9 +47,9 @@ public class OperationYaCalcTest {
         assertEquals(actualResult, expectedResult); //проверяем актуальное значение с ожидаемым результатом
         }
 
-
+    @Test
     @Description("Выполнение операции cos(Pi/2) = 0, с корректными значениями. Корректные значения для создания вводятся через клавиатуру")
-    @Test (priority = 2)
+
     public void clickElementSearchCoinPiOperation() {
         final String valueOperation= "cp/2)";
         final String expectedResult = "0";
@@ -61,9 +63,9 @@ public class OperationYaCalcTest {
         assertEquals(actualResult, expectedResult); //проверяем актуальное значение с ожидаемым результатом
     }
 
-
+    @Test
     @Description("Выполнение операции 1,5 * 100 = 150, с корректными значениями. Корректные значения для создания вводятся через клавиатуру")
-    @Test (priority = 3)
+
     public void clickElementSearchMultiplicationOperation() {
         final String valueOperation = "1,5*100";
         final String expectedResult = "150";
@@ -75,9 +77,24 @@ public class OperationYaCalcTest {
 
         assertEquals(actualResult, expectedResult); //проверяем актуальное значение с ожидаемым результатом
 }
-    @AfterTest
+
+    @Test
+    @Description("Выполнение операции 58(% = Ошибка. Некорректные значения для создания вводятся через клавиатуру")
+
+    public void clickElementErrorOperation() {
+        final String valueOperation = "58(%";
+        final String expectedResult = "Ошибка";
+
+        calcHomePage.fillValidValueLineCalc(valueOperation);
+        String actualResult = calcHomePage.errorMessage();
+        calcHomePage.clickButtonCalcC();
+
+        assertEquals(actualResult, expectedResult); //проверяем актуальное значение с ожидаемым результатом
+
+    }
+
+    @AfterClass
     public static void afterTest() {
         driver.quit();
     }
-
 }

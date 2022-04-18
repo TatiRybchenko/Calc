@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Calc" parallel="methods" thread-count="4">
+    <test verbose="2" preserve-order="true" name="C:/Users/Tati/Calc/src/test/java">
+        <classes>
+            <class name="calculator.OperationYaCalcTest">
+                <methods>
+                    <include name="clickElementSearchSquareRootOperation"/>
+                    <include name="clickElementSearchCoinPiOperation"/>
+                    <include name="clickElementSearchMultiplicationOperation"/>
+                    <include name="clickElementErrorOperation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
