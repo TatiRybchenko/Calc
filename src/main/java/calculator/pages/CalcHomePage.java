@@ -63,13 +63,13 @@ public class CalcHomePage {
     @FindBy(xpath = "//*[@class='calculator-display__error']")
     private WebElement errorMessage;
 
-    @Step("Нажимаем на строку ввода в калькуляторе")
+    @Step("Нажимаем на строку ввода  в калькуляторе")
     //метод клика по окну калькулятора и по строке ввода
     public void clickLineCalc() {
         lineInputCalc.click();
     }
 
-    @Step("Вводим значения с клавиатуры: {valueOperation}, для вычисления выражения на калькуляторе")
+    @Step("Вводим значения с клавиатуры: {valueOperation}, для вычисления выражения на калькуляторе и нажимаем @Name(\"ПОЛЕ ВВОДА ЗНАЧЕНИЙ КАЛЬКУЛЯТОРА\")")
     //метод ввода данных
     public void fillValidValueLineCalc(String valueOperation) {
         lineInputCalc.sendKeys(valueOperation);

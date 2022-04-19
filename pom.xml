@@ -44,8 +44,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <suiteXmlFiles>testng.xml</suiteXmlFiles>
-                    <argLine>
+                   <suiteXmlFiles>${basedir}/src/main/resources/testng.xml</suiteXmlFiles>
+                      <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                      <systemProperties>
