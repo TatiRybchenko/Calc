@@ -1,8 +1,8 @@
 package calculator.pages;
 
-import jdk.jfr.Name;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
