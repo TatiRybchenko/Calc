@@ -67,7 +67,7 @@ public class CalcHomePage {
         lineInputCalc.click();
     }
 
-    @Step("Вводим значения с клавиатуры: {valueOperation}, для вычисления выражения на калькуляторе и нажимаем @Name(\"ПОЛЕ ВВОДА ЗНАЧЕНИЙ КАЛЬКУЛЯТОРА\")")
+    @Step("Вводим значения с клавиатуры: {valueOperation}, для вычисления выражения на калькуляторе и нажимаем")
     //метод ввода данных
     public void fillValidValueLineCalc(String valueOperation) {
         lineInputCalc.sendKeys(valueOperation);

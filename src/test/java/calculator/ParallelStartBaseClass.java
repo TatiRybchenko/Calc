@@ -1,37 +1,38 @@
 package calculator;
 
+
 import calculator.block.SearchBlock;
+import calculator.config.TLDriverFactory;
 import calculator.pages.CalcHomePage;
-import io.qameta.allure.Description;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
 import static calculator.pages.SearchYaHomePage.URL;
 
-public class ParallelStartBaseClass {
-    public static WebDriver driver;
-    public static  CalcHomePage calcHomePage;
+
+public abstract class ParallelStartBaseClass {
+
+    public static CalcHomePage calcHomePage;
     public static SearchBlock searchPage;
+    protected WebDriverWait wait;
+
 
     @BeforeMethod
-    @Description("Выполнения запроса поиска онлайн-калькулятора на странице яндекса")
-    public void beforeMethod() {
+        public void setupMethod ()  {
         final String requestCalculator = "калькулятор";
-        driver = new ChromeDriver();
-        searchPage = new SearchBlock(driver);
-        calcHomePage = new CalcHomePage(driver);
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(URL);
-        searchPage.search(requestCalculator);
-        calcHomePage.clickButtonCalcC();
+        TLDriverFactory.setTLDriver();
+        wait = new WebDriverWait(TLDriverFactory.getTLDriver(), 10);
+
+        TLDriverFactory.getTLDriver().navigate().to(URL);
+       searchPage = new SearchBlock(TLDriverFactory.getTLDriver());
+       searchPage.search(requestCalculator);
+       calcHomePage = new CalcHomePage(TLDriverFactory.getTLDriver());
+       calcHomePage.clickButtonCalcC();
     }
+
     @AfterMethod
-    @Description("Закрытие браузера")
-    public void afterMethod() {
-         driver.quit();
-    }
-
+    public synchronized void tearDown()  {
+        TLDriverFactory.getTLDriver().quit();
+           }
 }

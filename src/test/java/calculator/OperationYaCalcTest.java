@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.testng.annotations.*;
 import static org.testng.Assert.assertEquals;
 
-
-
 public class OperationYaCalcTest extends ParallelStartBaseClass {
 
     @Test
@@ -30,7 +28,6 @@ public class OperationYaCalcTest extends ParallelStartBaseClass {
         final String valueOperation= "cp/2)";
         final String expectedResult = "0";
 
-
         calcHomePage.fillValidValueLineCalc(valueOperation);
         calcHomePage.clickButtonCalcEquals();
         calcHomePage.clickRadioButtonCalcRad();
@@ -46,7 +43,6 @@ public class OperationYaCalcTest extends ParallelStartBaseClass {
         final String valueOperation = "1,5*100";
         final String expectedResult = "150";
 
-
         calcHomePage.fillValidValueLineCalc(valueOperation);
         calcHomePage.clickButtonCalcEquals();
         String actualResult = calcHomePage.clickResult();
@@ -60,7 +56,6 @@ public class OperationYaCalcTest extends ParallelStartBaseClass {
         public void clickElementErrorOperation() {
         final String valueOperation = "58(%";
         final String expectedResult = "Ошибка";
-
 
         calcHomePage.fillValidValueLineCalc(valueOperation);
         String actualResult = calcHomePage.errorMessage();

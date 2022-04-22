@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Калькулятор" parallel="methods" thread-count="4" verbose="10" >
+<suite name="Калькулятор" parallel="methods" thread-count="4" verbose="10">
     <test name="Операции выполняемые в калькуляторе" >
         <classes>
             <class name="calculator.OperationYaCalcTest">
