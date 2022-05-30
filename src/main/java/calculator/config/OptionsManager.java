@@ -1,7 +1,7 @@
 package calculator.config;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-//cj
+
 public class OptionsManager {
 
     public static ChromeOptions getChromeOptions() {

@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Калькулятор" parallel="methods" thread-count="4" verbose="10">
+<suite name="Калькулятор" parallel="classes" thread-count="4" verbose="10">
     <test name="Операции выполняемые в калькуляторе" >
         <classes>
             <class name="calculator.OperationYaCalcTest">
                 <methods>
                     <include name="clickElementSearchSquareRootOperation" description = "Выполнение выражения: sqrt(144) = 12"  />
+                </methods>
+            </class>
+            <class name="calculator.OperationYaCalcTest_1">
+                <methods>
                     <include name="clickElementSearchCoinPiOperation" description = "Выполнение выражения: cos(Pi/2) = 0"/>
+                </methods>
+            </class>
+            <class name="calculator.OperationYaCalcTest_2">
+                <methods>
                     <include name="clickElementSearchMultiplicationOperation" description = "Выполнение выражения: 1,5 * 100 = 150"/>
+                </methods>
+            </class>
+            <class name="calculator.OperationYaCalcTest_3">
+                <methods>
                     <include name="clickElementErrorOperation" description = "Сообщение об ошибке"/>
                 </methods>
             </class>

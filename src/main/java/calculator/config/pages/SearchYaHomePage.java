@@ -1,5 +1,6 @@
-package calculator.pages;
+package calculator.config.pages;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
@@ -7,8 +8,8 @@ import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
-public class SearchYaHomePage {
-
+@Name(value = "СТРАНИЦА ЯНДЕКСА")
+public class SearchYaHomePage  {
    public static final String URL = "https://yandex.ru/";
 
     //локатор поисковой строки
@@ -26,10 +27,12 @@ public class SearchYaHomePage {
         @FindBy(xpath = "//button[@type='submit']")
         private Button searchButton;
 
-        @Step("В строке поиска «Яндекса», вводим значение: {request}. Нажимаем на кнопку {@Name.searchButton{.")
-        //метод ввода значений для выполнения запроса на поиск по кнопке "Найти"
+        @Step("В строке поиска «Яндекса», вводим значение: {request}.")
         public void search(String request) {
+            Allure.step("Нажимаем на " +  this.getName());
+            Allure.step("Нажимаем на " +  requestInput.getName());
             requestInput.sendKeys(request);
+            Allure.step("Нажимаем на " + searchButton.getName());
             searchButton.click();
         }
     }

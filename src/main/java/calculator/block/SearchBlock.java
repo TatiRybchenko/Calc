@@ -1,6 +1,6 @@
 package calculator.block;
 
-import calculator.pages.SearchYaHomePage;
+import calculator.config.pages.SearchYaHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;

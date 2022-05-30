@@ -1,5 +1,6 @@
-package calculator.pages;
+package calculator.config.pages;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 
-
+@Name(value = "СТРАНИЦА ОНЛАЙН КАЛЬКУЛЯТОРА")
 public class CalcHomePage {
 
     //перегружаем селектор самого блока для поисковой формы яндекса
@@ -61,52 +62,59 @@ public class CalcHomePage {
     @FindBy(xpath = "//*[@class='calculator-display__error']")
     private WebElement errorMessage;
 
-    @Step("Нажимаем на строку ввода  в калькуляторе")
+  @Step("Нажимаем на строку ввода  в калькуляторе")
     //метод клика по окну калькулятора и по строке ввода
     public void clickLineCalc() {
+      Allure.step("Нажимаем на " + lineInputCalc.getName());
         lineInputCalc.click();
     }
 
     @Step("Вводим значения с клавиатуры: {valueOperation}, для вычисления выражения на калькуляторе и нажимаем")
     //метод ввода данных
     public void fillValidValueLineCalc(String valueOperation) {
+        Allure.step("Нажимаем на " +   lineInputCalc.getName());
         lineInputCalc.sendKeys(valueOperation);
     }
 
     @Step("Нажимаем на кнопку в калькуляторе (квадратный корень): sqrt")
     //метод клика по кнопке корень квадратный
     public void clickSquareRoot() {
+        Allure.step("Нажимаем на " +   squareRoot.getName());
         squareRoot.click();
     }
 
     @Step("Нажимаем на кнопку в калькуляторе (сброс) введенных значений: С")
     //метод клика по кнопке C
     public void clickButtonCalcC() {
+        Allure.step("Нажимаем на " +  buttonCalcC.getName());
         buttonCalcC.click();
     }
 
     @Step("Нажимаем на кнопку в калькуляторе (равно): =")
     //метод клика по кнопке =
     public void clickButtonCalcEquals() {
+        Allure.step("Нажимаем на " +   buttonCalcEquals.getName());
         buttonCalcEquals.click();
     }
 
     @Step("Нажимаем на радиокнопку в калькуляторе (радианы): Rad")
     //метод клика по кнопке Rad =
     public void clickRadioButtonCalcRad() {
+        Allure.step("Нажимаем на " +    radioButtonCalcRad.getName());
         radioButtonCalcRad.click();
     }
 
     @Step("Извлекаем полученное значение, в результате выполнения операции")
     //метод извлечения результата выполнения операций, возвращает полученное значение
     public String clickResult() {
+        Allure.step("Нажимаем на " +    lineInputCalc.getName());
         lineInputCalc.click();
         return lineInputCalc.getText();
     }
     @Step("Проверяем наличие сообщения на экране, в результате выполнения некорректной операции")
     //метод извлечения результата выполнения операций, возвращает полученное значение
     public String errorMessage() {
-        errorMessage.click();
+       errorMessage.click();
         return errorMessage.getText();
     }
 
