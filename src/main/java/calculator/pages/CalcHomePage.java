@@ -1,7 +1,9 @@
-package calculator.config.pages;
+package calculator.pages;
 
+import calculator.block.SearchBlock;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +19,7 @@ public class CalcHomePage {
     //перегружаем селектор самого блока для поисковой формы яндекса
     @Name("ПОИСКОВАЯ ФОРМА ЯНДЕКСА")
     @FindBy(className = "serp-header__search2")
-    private SearchYaHomePage.SearchArrowYa searchArrow;
+    private SearchBlock.SearchArrowYa searchArrow;
 
     public CalcHomePage(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
@@ -37,17 +39,12 @@ public class CalcHomePage {
     @FindBy(xpath = "//input[@placeholder='0']")
     private TextInput lineInputCalc;
 
-    //локатор кнопки С у  калькулятора
-    @Name("СБРОС")
-    @FindBy(xpath = "//button[contains(@data-bem,'{\"button2\":{},\"calculator__btn\":{\"action\":\"ce\",\"arg\":null}}')]")
-    private Button buttonCalcC;
-
     //локатор кнопки корень квадратный
     @Name("КОРЕНЬ КВАДРАТНЫЙ")
     @FindBy(xpath = "//button[contains(@data-bem,'{\"button2\":{},\"calculator__btn\":{\"action\":\"cmd\",\"arg\":\"√\"}}')]")
     private Button squareRoot;
 
-    //локатор кнопки = у  калькулятора
+    //локатор кнопки = у калькулятора
     @Name("РАВНО")
     @FindBy(xpath = "//button[contains(@data-bem,'{\"button2\":{},\"calculator__btn\":{\"action\":\"equal\",\"arg\":null}}')]")
     private Button buttonCalcEquals;
@@ -83,18 +80,17 @@ public class CalcHomePage {
         squareRoot.click();
     }
 
-    @Step("Нажимаем на кнопку в калькуляторе (сброс) введенных значений: С")
-    //метод клика по кнопке C
-    public void clickButtonCalcC() {
-        Allure.step("Нажимаем на " +  buttonCalcC.getName());
-        buttonCalcC.click();
-    }
-
     @Step("Нажимаем на кнопку в калькуляторе (равно): =")
     //метод клика по кнопке =
     public void clickButtonCalcEquals() {
         Allure.step("Нажимаем на " +   buttonCalcEquals.getName());
         buttonCalcEquals.click();
+    }
+
+    @Step("Нажимаем на кнопку ESCAPE, СБРОС")
+    public void clickEscapeButton() {
+        Allure.step("Нажимаем на кнопку ESCAPE");
+        lineInputCalc.sendKeys(Keys.ESCAPE);
     }
 
     @Step("Нажимаем на радиокнопку в калькуляторе (радианы): Rad")

@@ -1,15 +1,12 @@
 package calculator;
 
-import calculator.block.SearchBlock;
 import calculator.config.TLDriverFactory;
-import calculator.config.pages.CalcHomePage;
-import io.qameta.allure.*;
-import org.testng.annotations.*;
-import static calculator.config.pages.SearchYaHomePage.URL;
+import calculator.pages.CalcHomePage;
+import io.qameta.allure.Description;
+import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class OperationYaCalcTest extends ParallelStartBaseClass {
-    public static SearchBlock searchPage;
     public static CalcHomePage calcHomePage;
 
     @Test
@@ -17,19 +14,15 @@ public class OperationYaCalcTest extends ParallelStartBaseClass {
         public void clickElementSearchSquareRootOperation() {
         final String valueOperation = "144";
         final String expectedResult = "12";
-        final String requestCalculator = "калькулятор";
 
-        TLDriverFactory.getTLDriver().navigate().to(URL);
-        searchPage = new SearchBlock(TLDriverFactory.getTLDriver());
-        searchPage.search(requestCalculator);
         calcHomePage = new CalcHomePage(TLDriverFactory.getTLDriver());
-        calcHomePage.clickButtonCalcC();
+        calcHomePage.clickEscapeButton();
 
         calcHomePage.fillValidValueLineCalc(valueOperation);
         calcHomePage.clickSquareRoot();
         calcHomePage.clickButtonCalcEquals();
         String actualResult = calcHomePage.clickResult();
-        calcHomePage.clickButtonCalcC();
+        calcHomePage.clickEscapeButton();
 
         assertEquals(actualResult, expectedResult); //проверяем актуальное значение с ожидаемым результатом
         }
