@@ -4,27 +4,21 @@ import calculator.block.SearchBlock;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
-import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
-
 
 @Name(value = "СТРАНИЦА ОНЛАЙН КАЛЬКУЛЯТОРА")
-public class CalcHomePage {
+public class CalcHomePage extends AbstractPage {
 
     //перегружаем селектор самого блока для поисковой формы яндекса
     @Name("ПОИСКОВАЯ ФОРМА ЯНДЕКСА")
     @FindBy(className = "serp-header__search2")
     private SearchBlock.SearchArrowYa searchArrow;
 
-    public CalcHomePage(WebDriver driver) {
-        HtmlElementLoader.populatePageObject(this, driver);
-    }
-
+    public CalcHomePage() { }
     public void search(String request) {
         searchArrow.search(request);
     }
@@ -59,10 +53,10 @@ public class CalcHomePage {
     @FindBy(xpath = "//*[@class='calculator-display__error']")
     private WebElement errorMessage;
 
-  @Step("Нажимаем на строку ввода  в калькуляторе")
+     @Step("Нажимаем на строку ввода  в калькуляторе")
     //метод клика по окну калькулятора и по строке ввода
-    public void clickLineCalc() {
-      Allure.step("Нажимаем на " + lineInputCalc.getName());
+     public void clickLineCalc() {
+         Allure.step("Нажимаем на " + lineInputCalc.getName());
         lineInputCalc.click();
     }
 

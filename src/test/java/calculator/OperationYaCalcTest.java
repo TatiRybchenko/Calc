@@ -15,7 +15,7 @@ public class OperationYaCalcTest extends ParallelStartBaseClass {
         final String valueOperation = "144";
         final String expectedResult = "12";
 
-        calcHomePage = new CalcHomePage(TLDriverFactory.getTLDriver());
+        calcHomePage = new CalcHomePage();
         calcHomePage.clickEscapeButton();
 
         calcHomePage.fillValidValueLineCalc(valueOperation);

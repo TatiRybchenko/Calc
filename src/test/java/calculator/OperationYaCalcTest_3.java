@@ -1,6 +1,5 @@
 package calculator;
 
-import calculator.config.TLDriverFactory;
 import calculator.pages.CalcHomePage;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
@@ -15,7 +14,7 @@ public class OperationYaCalcTest_3 extends ParallelStartBaseClass {
         final String valueOperation = "58(%";
         final String expectedResult = "Ошибка";
 
-        calcHomePage = new CalcHomePage(TLDriverFactory.getTLDriver());
+        calcHomePage = new CalcHomePage();
         calcHomePage.clickEscapeButton();
 
         calcHomePage.fillValidValueLineCalc(valueOperation);

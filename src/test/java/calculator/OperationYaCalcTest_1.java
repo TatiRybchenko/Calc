@@ -1,10 +1,7 @@
 package calculator;
 
-import calculator.block.SearchBlock;
-import calculator.config.TLDriverFactory;
-import calculator.pages.CalcHomePage;
 
-import io.qameta.allure.Allure;
+import calculator.pages.CalcHomePage;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
@@ -18,8 +15,7 @@ public class OperationYaCalcTest_1 extends ParallelStartBaseClass {
         final String valueOperation= "cp/2)";
         final String expectedResult = "0";
 
-
-        calcHomePage = new CalcHomePage(TLDriverFactory.getTLDriver());
+        calcHomePage = new CalcHomePage();
         calcHomePage.clickEscapeButton();
 
         calcHomePage.fillValidValueLineCalc(valueOperation);
